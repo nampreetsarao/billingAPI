@@ -1,0 +1,706 @@
+---
+swagger: "2.0"
+info:
+  description: ""
+  version: "2.0"
+  title: "API BillingManagement"
+host: "localhost"
+basePath: "/DSBillingManagement/api/billingManagement/v2"
+schemes:
+- "http"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /appliedCustomerBillingCharge:
+    get:
+      tags:
+      - "appliedCustomerBillingCharge"
+      summary: "appliedCustomerBillingChargeFind"
+      description: ""
+      operationId: "appliedCustomerBillingChargeFind"
+      parameters:
+      - name: "fields"
+        in: "query"
+        description: ""
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "List of AppliedCustomerBillingCharge"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/AppliedCustomerBillingCharge"
+      x-swagger-router-controller: "AppliedCustomerBillingCharge"
+    post:
+      tags:
+      - "appliedCustomerBillingCharge"
+      summary: "appliedCustomerBillingChargeCreate"
+      description: ""
+      operationId: "appliedCustomerBillingChargeCreate"
+      parameters:
+      - in: "body"
+        name: "appliedCustomerBillingCharge"
+        required: true
+        schema:
+          $ref: "#/definitions/AppliedCustomerBillingCharge"
+      responses:
+        201:
+          description: "AppliedCustomerBillingCharge"
+          schema:
+            $ref: "#/definitions/AppliedCustomerBillingCharge"
+      x-swagger-router-controller: "AppliedCustomerBillingCharge"
+  /appliedCustomerBillingCharge/{appliedCustomerBillingChargeId}:
+    get:
+      tags:
+      - "appliedCustomerBillingCharge"
+      summary: "appliedCustomerBillingChargeGet"
+      description: ""
+      operationId: "appliedCustomerBillingChargeGet"
+      parameters:
+      - name: "appliedCustomerBillingChargeId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "fields"
+        in: "query"
+        description: ""
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "AppliedCustomerBillingCharge"
+          schema:
+            $ref: "#/definitions/AppliedCustomerBillingCharge"
+      x-swagger-router-controller: "AppliedCustomerBillingCharge"
+  /billingAccount:
+    get:
+      tags:
+      - "billingAccount"
+      summary: "billingAccountFind"
+      description: ""
+      operationId: "billingAccountFind"
+      parameters:
+      - name: "fields"
+        in: "query"
+        description: ""
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "List of BillingAccount"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/BillingAccount"
+      x-swagger-router-controller: "BillingAccount"
+    post:
+      tags:
+      - "billingAccount"
+      summary: "billingAccountCreate"
+      description: ""
+      operationId: "billingAccountCreate"
+      parameters:
+      - in: "body"
+        name: "billingAccount"
+        required: true
+        schema:
+          $ref: "#/definitions/BillingAccount"
+      responses:
+        201:
+          description: "BillingAccount"
+          schema:
+            $ref: "#/definitions/BillingAccount"
+      x-swagger-router-controller: "BillingAccount"
+  /billingAccount/{billingAccountId}:
+    get:
+      tags:
+      - "billingAccount"
+      summary: "billingAccountGet"
+      description: ""
+      operationId: "billingAccountGet"
+      parameters:
+      - name: "billingAccountId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "fields"
+        in: "query"
+        description: ""
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "BillingAccount"
+          schema:
+            $ref: "#/definitions/BillingAccount"
+      x-swagger-router-controller: "BillingAccount"
+    patch:
+      tags:
+      - "billingAccount"
+      summary: "billingAccountPatch"
+      description: ""
+      operationId: "billingAccountPatch"
+      parameters:
+      - name: "billingAccountId"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "billingAccount"
+        required: true
+        schema:
+          $ref: "#/definitions/BillingAccount"
+      responses:
+        200:
+          description: "Success BillingAccount"
+          schema:
+            $ref: "#/definitions/BillingAccount"
+      x-swagger-router-controller: "BillingAccount"
+  /customerBillFormat:
+    get:
+      tags:
+      - "customerBillFormat"
+      summary: "customerBillFormatFind"
+      description: ""
+      operationId: "customerBillFormatFind"
+      parameters:
+      - name: "fields"
+        in: "query"
+        description: ""
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "List of CustomerBillFormat"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/CustomerBillFormat"
+      x-swagger-router-controller: "CustomerBillFormat"
+  /customerBillFormat/{customerBillFormatId}:
+    get:
+      tags:
+      - "customerBillFormat"
+      summary: "customerBillFormatGet"
+      description: ""
+      operationId: "customerBillFormatGet"
+      parameters:
+      - name: "customerBillFormatId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "fields"
+        in: "query"
+        description: ""
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "CustomerBillFormat"
+          schema:
+            $ref: "#/definitions/CustomerBillFormat"
+      x-swagger-router-controller: "CustomerBillFormat"
+  /customerBillPresentationMedia:
+    get:
+      tags:
+      - "customerBillPresentationMedia"
+      summary: "customerBillPresentationMediaFind"
+      description: ""
+      operationId: "customerBillPresentationMediaFind"
+      parameters:
+      - name: "fields"
+        in: "query"
+        description: ""
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "List of CustomerBillPresentationMedia"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/CustomerBillPresentationMedia"
+      x-swagger-router-controller: "CustomerBillPresentationMedia"
+  /customerBillPresentationMedia/{customerBillPresentationMediaId}:
+    get:
+      tags:
+      - "customerBillPresentationMedia"
+      summary: "customerBillPresentationMediaGet"
+      description: ""
+      operationId: "customerBillPresentationMediaGet"
+      parameters:
+      - name: "customerBillPresentationMediaId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "fields"
+        in: "query"
+        description: ""
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "CustomerBillPresentationMedia"
+          schema:
+            $ref: "#/definitions/CustomerBillPresentationMedia"
+      x-swagger-router-controller: "CustomerBillPresentationMedia"
+  /customerBillingCycleSpecification:
+    get:
+      tags:
+      - "customerBillingCycleSpecification"
+      summary: "customerBillingCycleSpecificationFind"
+      description: ""
+      operationId: "customerBillingCycleSpecificationFind"
+      parameters:
+      - name: "fields"
+        in: "query"
+        description: ""
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "List of CustomerBillingCycleSpecification"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/CustomerBillingCycleSpecification"
+      x-swagger-router-controller: "CustomerBillingCycleSpecification"
+  /customerBillingCycleSpecification/{customerBillingCycleSpecificationId}:
+    get:
+      tags:
+      - "customerBillingCycleSpecification"
+      summary: "customerBillingCycleSpecificationGet"
+      description: ""
+      operationId: "customerBillingCycleSpecificationGet"
+      parameters:
+      - name: "customerBillingCycleSpecificationId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "fields"
+        in: "query"
+        description: ""
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "CustomerBillingCycleSpecification"
+          schema:
+            $ref: "#/definitions/CustomerBillingCycleSpecification"
+      x-swagger-router-controller: "CustomerBillingCycleSpecification"
+  /hub:
+    get:
+      tags:
+      - "hub"
+      summary: "hubFind"
+      description: ""
+      operationId: "hubFind"
+      parameters: []
+      responses:
+        200:
+          description: "List of Hub"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Hub"
+      x-swagger-router-controller: "Hub"
+    post:
+      tags:
+      - "hub"
+      summary: "hubCreate"
+      description: ""
+      operationId: "hubCreate"
+      parameters:
+      - in: "body"
+        name: "hub"
+        required: true
+        schema:
+          $ref: "#/definitions/Hub"
+      responses:
+        201:
+          description: "Hub"
+          schema:
+            $ref: "#/definitions/Hub"
+      x-swagger-router-controller: "Hub"
+  /hub/{hubId}:
+    get:
+      tags:
+      - "hub"
+      summary: "hubGet"
+      description: ""
+      operationId: "hubGet"
+      parameters:
+      - name: "hubId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Hub"
+          schema:
+            $ref: "#/definitions/Hub"
+      x-swagger-router-controller: "Hub"
+    delete:
+      tags:
+      - "hub"
+      summary: "hubDelete"
+      description: ""
+      operationId: "hubDelete"
+      parameters:
+      - name: "hubId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        204:
+          description: "Success"
+      x-swagger-router-controller: "Hub"
+  /settlementNoteAdvice:
+    get:
+      tags:
+      - "settlementNoteAdvice"
+      summary: "settlementNoteAdviceFind"
+      description: ""
+      operationId: "settlementNoteAdviceFind"
+      parameters:
+      - name: "fields"
+        in: "query"
+        description: ""
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "List of SettlementNoteAdvice"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/SettlementNoteAdvice"
+      x-swagger-router-controller: "SettlementNoteAdvice"
+  /settlementNoteAdvice/{settlementNoteAdviceId}:
+    get:
+      tags:
+      - "settlementNoteAdvice"
+      summary: "settlementNoteAdviceGet"
+      description: ""
+      operationId: "settlementNoteAdviceGet"
+      parameters:
+      - name: "settlementNoteAdviceId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "fields"
+        in: "query"
+        description: ""
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "SettlementNoteAdvice"
+          schema:
+            $ref: "#/definitions/SettlementNoteAdvice"
+      x-swagger-router-controller: "SettlementNoteAdvice"
+definitions:
+  BillingAccount:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      href:
+        type: "string"
+      ratingType:
+        type: "string"
+      name:
+        type: "string"
+      state:
+        type: "string"
+      validFor:
+        $ref: "#/definitions/ValidFor"
+      customerAccount:
+        $ref: "#/definitions/Reference"
+      customerBillingCycleSpecification:
+        $ref: "#/definitions/CustomerBillingCycleSpecification"
+      customerBillFormat:
+        $ref: "#/definitions/CustomerBillFormat"
+      customerBillPresentationMedia:
+        $ref: "#/definitions/Reference"
+      currency:
+        $ref: "#/definitions/Currency"
+      billingAccountBalance:
+        type: "array"
+        items:
+          $ref: "#/definitions/BillingAccountBalance"
+      relatedParty:
+        type: "array"
+        items:
+          $ref: "#/definitions/Reference"
+      paymentMean:
+        $ref: "#/definitions/Reference"
+  Currency:
+    type: "object"
+    properties:
+      currencyCode:
+        type: "string"
+  CustomerBillPresentationMedia:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      href:
+        type: "string"
+      name:
+        type: "string"
+  CustomerBillFormat:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      href:
+        type: "string"
+      name:
+        type: "string"
+  CustomerBillingCycleSpecification:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      href:
+        type: "string"
+      name:
+        type: "string"
+      billingDateShift:
+        type: "integer"
+        format: "int32"
+      frequency:
+        type: "string"
+  BillingAccountBalance:
+    type: "object"
+    properties:
+      type:
+        type: "string"
+      amount:
+        type: "number"
+        format: "float"
+      validFor:
+        $ref: "#/definitions/ValidFor"
+      status:
+        type: "string"
+  ValidFor:
+    type: "object"
+    properties:
+      startDateTime:
+        type: "string"
+        format: "date-time"
+      endDateTime:
+        type: "string"
+        format: "date-time"
+  AppliedCustomerBillingCharge:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      href:
+        type: "string"
+      date:
+        type: "string"
+        format: "date-time"
+      description:
+        type: "string"
+      type:
+        type: "string"
+      currencyCode:
+        type: "string"
+      taxIncludedAmount:
+        type: "number"
+        format: "float"
+      taxExcludedAmount:
+        type: "number"
+        format: "float"
+      appliedCustomerBillingTaxRate:
+        type: "array"
+        items:
+          $ref: "#/definitions/AppliedCustomerBillingTaxRate"
+      serviceId:
+        type: "array"
+        items:
+          $ref: "#/definitions/ServiceId"
+      productSpecification:
+        type: "array"
+        items:
+          $ref: "#/definitions/ProductSpecification"
+      period:
+        type: "array"
+        items:
+          $ref: "#/definitions/Period"
+  AppliedCustomerBillingTaxRate:
+    type: "object"
+    properties:
+      amount:
+        type: "number"
+        format: "float"
+      taxCategory:
+        type: "string"
+  ServiceId:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      type:
+        type: "string"
+  ProductSpecification:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      productNumber:
+        type: "string"
+  Period:
+    type: "object"
+    properties:
+      startPeriod:
+        type: "string"
+        format: "date-time"
+      endPeriod:
+        type: "string"
+        format: "date-time"
+  SettlementNoteAdvice:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      href:
+        type: "string"
+      date:
+        type: "string"
+        format: "date-time"
+      description:
+        type: "string"
+      paymentDueDate:
+        type: "string"
+        format: "date-time"
+      taxDate:
+        type: "string"
+        format: "date-time"
+      currencyCode:
+        type: "string"
+      taxExcludedAmount:
+        type: "number"
+        format: "float"
+      taxIncludedAmount:
+        type: "number"
+        format: "float"
+      taxItem:
+        type: "array"
+        items:
+          $ref: "#/definitions/TaxItem"
+      settlementMethod:
+        $ref: "#/definitions/SettlementMethod"
+      receiver:
+        $ref: "#/definitions/Receiver"
+      issuer:
+        $ref: "#/definitions/Issuer"
+      settlementNoteImage:
+        $ref: "#/definitions/SettlementNoteImage"
+      settlementNoteItem:
+        type: "array"
+        items:
+          $ref: "#/definitions/SettlementNoteItem"
+  TaxItem:
+    type: "object"
+    properties:
+      taxCategory:
+        type: "string"
+      taxRate:
+        type: "number"
+        format: "float"
+      taxAmount:
+        type: "number"
+        format: "float"
+  SettlementMethod:
+    type: "object"
+    properties:
+      code:
+        type: "string"
+      label:
+        type: "string"
+  Receiver:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      href:
+        type: "string"
+      taxRegistration:
+        $ref: "#/definitions/TaxRegistration"
+  Issuer:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      href:
+        type: "string"
+      taxRegistration:
+        $ref: "#/definitions/TaxRegistration"
+  SettlementNoteImage:
+    type: "object"
+    properties:
+      imageFormat:
+        type: "string"
+      imageSize:
+        type: "string"
+      imageFileName:
+        type: "string"
+      imageFileURL:
+        type: "string"
+  SettlementNoteItem:
+    type: "object"
+    properties:
+      itemNumber:
+        type: "string"
+      itemId:
+        type: "string"
+      itemLabel:
+        type: "string"
+      quantity:
+        type: "string"
+      taxItem:
+        type: "array"
+        items:
+          $ref: "#/definitions/TaxItem"
+      period:
+        $ref: "#/definitions/Period"
+      productSpecification:
+        $ref: "#/definitions/ProductSpecification"
+  TaxRegistration:
+    type: "object"
+    properties:
+      number:
+        type: "string"
+  Hub:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      callback:
+        type: "string"
+      query:
+        type: "string"
+  Reference:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      href:
+        type: "string"
+      name:
+        type: "string"
+      role:
+        type: "string"
