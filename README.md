@@ -1,3 +1,4 @@
+
 # Swagger generated server
 
 ## Overview
@@ -18,6 +19,11 @@ To view the Swagger UI interface:
 
 ```
 open http://localhost:8080/docs
+```
+
+Run following command on Swagger JSON file to create Node JS project 
+```
+java -jar D:/NPS/tmForum/billingProject/swagger-codegen-cli-2.2.1.jar generate -i D:/NPS/tmForum/swagger_billing3.json -l nodejs-server -o nodejs
 ```
 
 This project leverages the mega-awesome [swagger-tools](https://github.com/apigee-127/swagger-tools) middleware which does most all the work.
