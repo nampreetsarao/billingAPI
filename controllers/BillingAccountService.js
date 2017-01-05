@@ -8,13 +8,13 @@ var Server = mongo.Server,
     Db = mongo.Db,
     BSON = mongo.BSONPure;
 
-var server = new Server('mongodb141352-env-7729277.j.layershift.co.uk', 27017, {auto_reconnect: true});
+var server = new Server('169.46.22.35', 27017, {auto_reconnect: true});
 var db = new Db('billingAPIDB', server);
 //var promise = new Promise();
 
 db.open(function(err, db) {
     if(!err) {
-        db.authenticate("admin", "admin", function(err, res) {
+      //  db.authenticate("admin", "admin", function(err, res) {
            if(!err) {
                console.log("Authenticated");
                db.collection('billingAccount', {strict:true}, function(err, collection) {
@@ -30,7 +30,7 @@ db.open(function(err, db) {
                console.log("Error in authentication.");
                console.log(err);
            }
-       });
+      // });
     }else{
                console.log("Unable to connect:"+err);
     }
