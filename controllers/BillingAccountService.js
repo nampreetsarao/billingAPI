@@ -21,6 +21,7 @@ db.open(function(err, db) {
                  // promise.resolve(db);
                    if (err) {
                        console.log("The 'billingAccount' collection doesn't exist. Creating it with sample data...");
+                       console.log("Error is: "+err);
                        //populateDB();
                    }else{
                      console.log("Connected to 'billingAPIDB' database");
