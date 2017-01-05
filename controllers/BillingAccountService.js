@@ -15,22 +15,23 @@ var db = new Db('billingAPIDB', server);
 db.open(function(err, db) {
     if(!err) {
       //  db.authenticate("admin", "admin", function(err, res) {
-           if(!err) {
-               console.log("Authenticated");
-               db.collection('billingAccount', {strict:true}, function(err, collection) {
-                 // promise.resolve(db);
-                   if (err) {
-                       console.log("The 'billingAccount' collection doesn't exist. Creating it with sample data...");
-                       console.log("Error is: "+err);
-                       //populateDB();
-                   }else{
-                     console.log("Connected to 'billingAPIDB' database");
-                   }
-               });
-           } else {
-               console.log("Error in authentication.");
-               console.log(err);
-           }
+        console.log("Authenticated");
+          //  if(!err) {
+          //
+          //      db.collection('billingAccount', {strict:true}, function(err, collection) {
+          //        // promise.resolve(db);
+          //          if (err) {
+          //              console.log("The 'billingAccount' collection doesn't exist. Creating it with sample data..."+err);
+           //
+          //              //populateDB();
+          //          }else{
+          //            console.log("Connected to 'billingAPIDB' database");
+          //          }
+          //      });
+          //  } else {
+          //      console.log("Error in authentication.");
+          //      console.log(err);
+          //  }
       // });
     }else{
                console.log("Unable to connect:"+err);
