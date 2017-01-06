@@ -2,7 +2,7 @@
 
 
 // We want to extract the port to publish our app on
-var port = process.env.PORT || 8099;
+//var port = process.env.PORT || 8099;
 
 //Mongo connection
 
@@ -254,6 +254,6 @@ exports.billingAccountPatch = function(args, res, next) {
 
 
 // Now we go and listen for a connection.
-app.listen(port);
-
+//app.listen(port);
+//
 require("cf-deployment-tracker-client").track();
