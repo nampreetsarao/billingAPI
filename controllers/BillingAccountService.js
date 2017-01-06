@@ -15,9 +15,10 @@ var appenv = cfenv.getAppEnv();
 
 // Within the application environment (appenv) there's a services object
 var services = appenv.services;
-
+console.console.log("Service object:"+JSON.stringify(services));
 // The services object is a map named by service so we extract the one for MongoDB
 var mongodb_services = services["compose-for-mongodb"];
+console.console.log("Mongo db service configuration is:"+JSON.stringify(mongodb_services));
 // For local run
 // var mongodb_services =
 // [
@@ -48,11 +49,13 @@ var mongodb_services = services["compose-for-mongodb"];
 
 // We now take the first bound MongoDB service and extract it's credentials object
 var credentials = mongodb_services[0].credentials;
+console.console.log("credentials fetched are:"+credentials);
 
 // Within the credentials, an entry ca_certificate_base64 contains the SSL pinning key
 // We convert that from a string into a Buffer entry in an array which we use when
 // connecting.
 var ca = [new Buffer(credentials.ca_certificate_base64, 'base64')];
+console.console.log("CA:"+ca);
 
 // This is a global variable we'll use for handing the MongoDB client around
 var mongodb;
