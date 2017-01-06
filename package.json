@@ -17,6 +17,10 @@
     "js-yaml": "^3.3.0",
     "swagger-tools": "0.10.1",
     "mongodb": "^2.2.9",
-    "cfenv": "^1.0.3"
+    "cfenv": "^1.0.3",
+    "http-post": "^0.1.1",
+   "http-proxy": "^1.8.1",
+      "body-parser": "^1.15.2",
+       "cf-deployment-tracker-client": "*"
   }
 }
