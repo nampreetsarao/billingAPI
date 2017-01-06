@@ -1,5 +1,9 @@
 'use strict';
 
+
+// We want to extract the port to publish our app on
+var port = process.env.PORT || 8099;
+
 //Mongo connection
 
 // Then we'll pull in the database client library
@@ -134,7 +138,7 @@ exports.billingAccountCreate = function(args, res, next) {
     // console.log("Data in next:"+next);
    var billingAccount = args.billingAccount.originalValue;
    console.log('Adding billing account: ' + JSON.stringify(billingAccount));
-   db.collection('billingAccount', function(err, collection) {
+   mongodb.collection('billingAccount', function(err, collection) {
        collection.insert(billingAccount, {safe:true}, function(err, result) {
            if (err) {
                res.send({'error':'An error has occurred'});
@@ -154,7 +158,7 @@ exports.billingAccountFind = function(args, res, next) {
   console.log("Args value: "+JSON.stringify(args));
     console.log("Inside find all....");
   //  promise.then(function(db){
-    db.collection('billingAccount', function(err, collection) {
+    mongodb.collection('billingAccount', function(err, collection) {
         collection.find().toArray(function(err, items) {
           console.log("Inside collection ...");
             //res.send(items);
@@ -177,7 +181,7 @@ exports.billingAccountGet = function(args, res, next) {
   var accountId =args.billingAccountId.originalValue;
   console.log("Inside account get....");
   //  promise.then(function(db){
-    db.collection('billingAccount', function(err, collection) {
+    mongodb.collection('billingAccount', function(err, collection) {
         collection.find({"customerAccount.id":accountId}).toArray(function(err, items) {
           console.log("Inside find by query ...");
             //res.send(items);
@@ -247,3 +251,9 @@ exports.billingAccountPatch = function(args, res, next) {
   }
 
 }
+
+
+// Now we go and listen for a connection.
+app.listen(port);
+
+require("cf-deployment-tracker-client").track();
