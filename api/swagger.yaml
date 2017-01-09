@@ -4,7 +4,7 @@ info:
   description: ""
   version: "2.0"
   title: "API BillingManagement"
-host: "localhost"
+host: "apicdgbillingapp.mybluemix.net"
 basePath: "/DSBillingManagement/api/billingManagement/v2"
 schemes:
 - "http"
