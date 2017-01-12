@@ -1,8 +1,29 @@
 'use strict';
 
+//********************************Start of Local configuration ******************************************
+// var mongo = require('mongodb');
+//
+// var Server = mongo.Server,
+//     Db = mongo.Db,
+//     BSON = mongo.BSONPure;
+//
+// var server = new Server('localhost', 27017, {auto_reconnect: true});
+// var mongodb = new Db('billingAPIDB', server);
+//
+// mongodb.open(function(err, db) {
+//     if(!err) {
+//         console.log("Connected to 'billingAPIDB' database");
+//         mongodb.collection('billingAccount', {strict:true}, function(err, collection) {
+//             if (err) {
+//                 console.log("The 'billingAccount' collection doesn't exist. Creating it with sample data...");
+//                 //populateDB();
+//             }
+//         });
+//     }
+// });
+//********************************End of Local configuration ******************************************
 
-// We want to extract the port to publish our app on
-//var port = process.env.PORT || 8099;
+//********************************Start of Bluemix configuration ******************************************
 
 //Mongo connection
 
@@ -20,29 +41,7 @@ console.log("Service object:"+JSON.stringify(services));
 var mongodb_services = services["compose-for-mongodb"];
 console.log("Mongo db service configuration is:"+JSON.stringify(mongodb_services));
 // For local run
-// var mongodb_services =
-// [
-//     {
-//       "credentials": {
-//         "db_type": "mongodb",
-//         "name": "bmix_dal_yp_98f5961e_bd5a_4b50_9cd0_55aa9bd2752b",
-//         "uri_cli": "mongo --ssl --sslAllowInvalidCertificates sl-us-dal-9-portal.2.dblayer.com:18254/admin -u admin -p OMEABBXDEUVWWZVF",
-//         "ca_certificate_base64": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURuVENDQW9XZ0F3SUJBZ0lFV0c4cXd6QU5CZ2txaGtpRzl3MEJBUTBGQURCUU1VNHdUQVlEVlFRRERFVncKY21GMFlYQnJkVzFoY2k1cmIzUm9kWEpwUUhSbFkyaHRZV2hwYm1SeVlTNWpiMjB0TVdRek5qa3pOR1JpWWpjNQpNamM1TVdSbE4ySTFORFZsTnpabU5Ea3hZekF3SGhjTk1UY3dNVEEyTURVeU56TXhXaGNOTXpjd01UQTJNRFV3Ck1EQXdXakJRTVU0d1RBWURWUVFEREVWd2NtRjBZWEJyZFcxaGNpNXJiM1JvZFhKcFFIUmxZMmh0WVdocGJtUnkKWVM1amIyMHRNV1F6Tmprek5HUmlZamM1TWpjNU1XUmxOMkkxTkRWbE56Wm1ORGt4WXpBd2dnRWlNQTBHQ1NxRwpTSWIzRFFFQkFRVUFBNElCRHdBd2dnRUtBb0lCQVFEbG9yeFE1YVU5VDh4cWt4bTJ5RnRFd1VIYXl2QU1lQU1OCjRWd2R6REFSc1BYWXFnb3BUb2NCa2FNMXN6bktrY2RwYXpFWVUxZXZ3dkxTM3VITFlJRTJjMmREdzJsQnA1WW8KclZEZnBERmZSbVV6cmdOamQrT2I2cldRL2QyaGJaMCtNNk82M1F0VVd1QVhaSmNNZTN3RWYxNmdqRlVteHVjZgpsdmJFWENYM0NRMVNPSlp2aXNreGdCZUF1blN3aGl0MjJWcnhXK2pCQmIwc1haNDdsbWx5OHlqQ1ZLVTluSmNrClF6MUR3WkIvK3NkT0hXb3hUT3FOQkxhcXcxMk9tL0w5SG1helR1MFBmUFZLRjFCY1VSakVoL0tIWjMvemVTUTkKcWpiSWhXazc4cHJjU2JJVUQxV1N5SEZGUjVJSHIrV29BRXNFT3BrRUZDbFd1ZlFuK0wyYkFnTUJBQUdqZnpCOQpNQjBHQTFVZERnUVdCQlNzcXVZNHVQWm12QXk5SjZrTUNUOVd4YkgxY3pBT0JnTlZIUThCQWY4RUJBTUNBZ1F3CkhRWURWUjBsQkJZd0ZBWUlLd1lCQlFVSEF3RUdDQ3NHQVFVRkJ3TUNNQXdHQTFVZEV3UUZNQU1CQWY4d0h3WUQKVlIwakJCZ3dGb0FVcktybU9MajJacndNdlNlcERBay9Wc1d4OVhNd0RRWUpLb1pJaHZjTkFRRU5CUUFEZ2dFQgpBSkQ2aEVMZWJ0SkdFVkt0S2hkbHVGQ05TZDRZZmk0RkVTSmRWZ1k1cW9JTE15UEhtaVRtT3BaNTdPL3VGUmFsCmVRWis2dE1sNVVEZ2VxUzZxNmU4TkhYaUR3VkdqSUNOY05PajJ0aWVzQjd6OTVsZzNqTkVZL2hVVk5CNklBNTAKRWg4eWpUeGh0Y1dCYjhCd2hOa2tGTlIvZ0ZQRzkxR0hQcXAzZDhKTVdGSEcvYkVSMEp3M0EvWTgyRWxKTFVsZwpkSHhCRm1CLy84Z1lLMTNFWUFLb05iTmFLRTRIN0p2RkhZYlVHY294V0dXYkhrd29zYXkwdjhjWGFCejMxNjN1Ci9tSlExVWlGS3MzOVNUZzBOTWNJTzA1V1V5bVRoVjFTYkhkeUpMUC92RUpZUHJlRndSWldlMDJoZ0dJdFhoalEKZEV0NnFCd1RvTitoUG1UZTBJNEwrRjg9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K",
-//         "deployment_id": "586f2abb5eed7d00190029b2",
-//         "uri": "mongodb://admin:OMEABBXDEUVWWZVF@sl-us-dal-9-portal.2.dblayer.com:18254,sl-us-dal-9-portal.0.dblayer.com:18254/admin?ssl=true"
-//       },
-//       "syslog_drain_url": null,
-//       "label": "compose-for-mongodb",
-//       "provider": null,
-//       "plan": "Standard",
-//       "name": "Compose for MongoDB-jo",
-//       "tags": [
-//         "big_data",
-//         "data_management",
-//         "ibm_created"
-//       ]
-//     }
-//   ];
+
 
 // This check ensures there is a services for MongoDB databases
 //assert(!util.isUndefined(mongodb_services), "Must be bound to compose-for-mongodb services");
@@ -92,6 +91,11 @@ MongoClient.connect(credentials.uri, {
     }
 );
 
+
+//********************************End of Bluemix configuration ******************************************
+
+//********************************Start of Jelastic configuration ******************************************
+// Connection for Jelastic
 // var mongo = require('mongodb');
 //
 // var Server = mongo.Server,
@@ -126,7 +130,7 @@ MongoClient.connect(credentials.uri, {
 //                console.log("Unable to connect:"+err);
 //     }
 // });
-
+//********************************End of Jelastic configuration ******************************************
 //Mongo connection end
 
 
@@ -163,10 +167,16 @@ exports.billingAccountFind = function(args, res, next) {
   //  promise.then(function(db){
     mongodb.collection('billingAccount', function(err, collection) {
         collection.find().toArray(function(err, items) {
+          if (err) {
+              res.send({'error':'An error has occurred'});
+              res.setHeader('Content-Type', 'application/json');
+              res.end({'error':'An error has occurred'});
+          } else {
           console.log("Inside collection ...");
             //res.send(items);
             res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify(items[Object.keys(items)[1]] || {}, null, 2));
+            res.end(JSON.stringify(items));
+          }
         });
     });
 }
@@ -177,8 +187,6 @@ exports.billingAccountGet = function(args, res, next) {
   * billingAccountId (String)
   * fields (String)
   **/
-
-
   console.log("Args value: "+JSON.stringify(args));
   console.log("Account Id passed: "+JSON.stringify(args.billingAccountId.originalValue));
   var accountId =args.billingAccountId.originalValue;
@@ -186,13 +194,18 @@ exports.billingAccountGet = function(args, res, next) {
   //  promise.then(function(db){
     mongodb.collection('billingAccount', function(err, collection) {
         collection.find({"customerAccount.id":accountId}).toArray(function(err, items) {
-          console.log("Inside find by query ...");
+          if (err) {
+              res.send({'error':'An error has occurred'});
+              res.setHeader('Content-Type', 'application/json');
+              res.end({'error':'An error has occurred'});
+          } else {
+            console.log("Inside find by query ...");
             //res.send(items);
             res.setHeader('Content-Type', 'application/json');
             res.end(JSON.stringify(items[Object.keys(items)[0]] || {}, null, 2));
+          }
         });
     });
-
 
 
 }
@@ -203,55 +216,43 @@ exports.billingAccountPatch = function(args, res, next) {
   * billingAccountId (String)
   * billingAccount (BillingAccount)
   **/
-    var examples = {};
-  examples['application/json'] = {
-  "validFor" : {
-    "startDateTime" : "2000-01-23T04:56:07.000+00:00",
-    "endDateTime" : "2000-01-23T04:56:07.000+00:00"
-  },
-  "paymentMean" : "",
-  "customerBillingCycleSpecification" : {
-    "billingDateShift" : 123,
-    "name" : "aeiou",
-    "id" : 123456789,
-    "href" : "aeiou",
-    "frequency" : "aeiou"
-  },
-  "relatedParty" : [ "" ],
-  "ratingType" : "aeiou",
-  "customerBillPresentationMedia" : "",
-  "name" : "aeiou",
-  "currency" : {
-    "currencyCode" : "aeiou"
-  },
-  "id" : 123456789,
-  "href" : "aeiou",
-  "state" : "aeiou",
-  "customerBillFormat" : {
-    "name" : "aeiou",
-    "id" : 123456789,
-    "href" : "aeiou"
-  },
-  "billingAccountBalance" : [ {
-    "amount" : 1.3579000000000001069366817318950779736042022705078125,
-    "validFor" : "",
-    "type" : "aeiou",
-    "status" : "aeiou"
-  } ],
-  "customerAccount" : {
-    "role" : "aeiou",
-    "name" : "aeiou",
-    "id" : "aeiou",
-    "href" : "aeiou"
-  }
-};
-  if(Object.keys(examples).length > 0) {
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
-  }
-  else {
-    res.end();
-  }
+
+  console.log("\nRequest received:"+JSON.stringify(args.billingAccount.originalValue));
+  console.log("\nAccount Id passed: "+JSON.stringify(args.billingAccountId.originalValue));
+  var accountId =args.billingAccountId.originalValue;
+  var name  =args.billingAccount.originalValue.name;
+  var cycleDate  =args.billingAccount.originalValue.customerBillingCycleSpecification.name;
+  var billingAccountTest = args.billingAccount.originalValue;
+
+  console.log('\nUpdating billing account: ' + billingAccountTest);
+
+  mongodb.collection('billingAccount', function(err, collection) {
+
+    collection.find({"customerAccount.id":accountId}).toArray(function(err, items) {
+      if (err) {
+          res.send({'error':'No such record found by id:'+accountId});
+          res.setHeader('Content-Type', 'application/json');
+          res.end({'error':'No such record found by id:'+accountId});
+      } else {
+        console.log("\n Found an account by the id: "+accountId);
+        //to allow upsert add {upsert : true},
+        collection.replaceOne({"customerAccount.id":accountId},{ $set:{"name": name, "customerBillingCycleSpecification.name": cycleDate}},function(err, result) {
+            if (err) {
+                res.send({'error':'An error has occurred'});
+                res.setHeader('Content-Type', 'application/json');
+                res.end({'error':'An error has occurred'});
+            } else {
+                console.log('Success: ' + JSON.stringify(result[0]));
+                res.setHeader('Content-Type', 'application/json');
+                res.end(result[0]);
+            }
+        });
+      }
+    });
+
+
+
+  });
 
 }
 
